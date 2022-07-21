@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "weatherpony.minelittlebrony2.mixins",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "PonyEdit"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
