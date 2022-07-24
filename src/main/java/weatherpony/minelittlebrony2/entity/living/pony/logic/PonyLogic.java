@@ -6,6 +6,7 @@ import java.util.List;
 import com.minelittlepony.api.pony.IPony;
 import com.minelittlepony.api.pony.IPonyData;
 import com.minelittlepony.api.pony.meta.Race;
+import com.minelittlepony.client.pony.Memoize;
 import com.minelittlepony.client.pony.Pony;
 import net.minecraft.client.texture.NativeImage;
 import net.minecraft.entity.LivingEntity;
@@ -65,9 +66,9 @@ public class PonyLogic<PONY extends LivingEntity & IAmAPony> implements PonyInve
 		Pony pny;
 		try{
 			pd = MLBPony.makeData_fromPixels(skin);
-			Constructor<Pony> PC = Pony.class.getDeclaredConstructor(Identifier.class, IPonyData.class);
+			Constructor<Pony> PC = Pony.class.getDeclaredConstructor(Identifier.class, Memoize.class);
 			PC.setAccessible(true);
-			pny = PC.newInstance(skin, pd);
+			pny = PC.newInstance(skin, Memoize.of(pd));
 
 		} catch (Exception e) {
 			MineLBrony2_FabricMod.LOGGER.error(skin.toString());

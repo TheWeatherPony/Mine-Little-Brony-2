@@ -16,7 +16,7 @@ trait WaterWatching extends BasePony {
   }
   override def tickMovement():Unit = {
     super.tickMovement()
-    if(!this.world.isClient && this.isPonyWet && !isDrying && (this.onGround || (this.getVehicle().isInstanceOf[BoatEntity]))){
+    if(!this.world.isClient && this.isPonyWet && !isDrying && (this.isOnGround() || (this.getVehicle().isInstanceOf[BoatEntity]))){
       isDrying = true
       dryingTime == dryTime
     }

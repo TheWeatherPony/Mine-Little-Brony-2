@@ -50,7 +50,7 @@ trait BasePony extends RootPony with IHavePonyLogic
   override def tickMovement():Unit = {
     super.tickMovement()
     if (this.getMyLogic(PonyLogicReasoning.CAPABILITIES).canFlyWell()){
-			if (!this.onGround){
+			if (!this.isOnGround()){
 				this.isFlying = true;
 			}else{
 				this.isFlying = false;
